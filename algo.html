@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container pt-5">
+    <h1 class="text-center" style="color: #8CE17D;">Campus Placement Prediction Algorithms</h1>
+    <p class="text-center pt-3">
+        Leverage powerful machine learning algorithms like Random Forest, XGBoost, CatBoost, and LightGBM to predict fake reviews with high accuracy and confidence.
+    </p>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Random Forest</h2>
+            <a href="https://en.wikipedia.org/wiki/Random_forest">
+                <img src="static/rf.png" alt="Random Forest Illustration" class="img-fluid" style="border-radius: 10px; width: 100%; height: 250px; object-fit: cover;">
+            </a>
+            <p class="pt-3">
+                Random Forest is an ensemble learning algorithm that combines multiple decision trees to improve prediction accuracy. It works well for tumor prediction by considering various factors and producing reliable classifications.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="text-center">XGBoost</h2>
+            <a href="https://xgboost.ai/">
+                <img src="static/xgb2.png" alt="XGBoost Illustration" class="img-fluid" style="border-radius: 10px; width: 100%; height: 250px; object-fit: cover;">
+            </a>
+            <p class="pt-3">
+                XGBoost (Extreme Gradient Boosting) is a highly efficient gradient boosting algorithm known for its speed and performance. It's widely used in medical image analysis to detect bone tumors with high precision.
+            </p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">CatBoost</h2>
+            <a href="https://catboost.ai/">
+                <img src="static/ct.png" alt="CatBoost Illustration" class="img-fluid" style="border-radius: 10px; width: 100%; height: 250px; object-fit: cover;">
+            </a>
+            <p class="pt-3">
+                CatBoost is a gradient boosting algorithm that excels at handling categorical features efficiently. It is used to detect bone tumors by leveraging its ability to process structured data and produce accurate predictions.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="text-center">LightGBM</h2>
+            <a href="https://lightgbm.readthedocs.io/en/latest/">
+                <img src="static/lgb2.png" alt="LightGBM Illustration" class="img-fluid" style="border-radius: 10px; width: 100%; height: 250px; object-fit: cover;">
+            </a>
+            <p class="pt-3">
+                LightGBM (Light Gradient Boosting Machine) is a fast and efficient algorithm for large datasets. It is highly effective in tumor detection tasks, providing quick and precise classification results.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<br>
+<br>
+
+{% endblock %}

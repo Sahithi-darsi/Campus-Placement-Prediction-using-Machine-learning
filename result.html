@@ -1,0 +1,92 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container pt-5" style="background-color: #f8f9fa; padding: 30px; border-radius: 10px;">
+    <h1 class="text-center" style="color: #8CE17D;">Campus Placement Prediction</h1>
+    <p class="text-center pt-3">
+        Compare the accuracy of various machine learning algorithms used for campus placement prediction.
+    </p>
+</div>
+<br>
+<br>
+
+<!-- Accuracy Chart -->
+<div class="container">
+    <h2 class="text-center">Accuracy Comparison</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <canvas id="accuracyChart" style="max-width: 100%; height: 300px;"></canvas>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Ensure the document is fully loaded before initializing the chart
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctx = document.getElementById('accuracyChart').getContext('2d');
+        var accuracyChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Decision Tree', 'Random Forest', 'Gradient Boosting', 'LightGBM', 'CatBoost', 'HGB'],
+                datasets: [{
+                    label: 'Accuracy (%)',
+                    data: [
+                        88.25, // Decision Tree
+                        88.15, // Random Forest
+                        88.15, // Gradient Boosting
+                        88.35, // LightGBM
+                        88.66, // CatBoost
+                        88.15  // HGB
+                    ],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.6)', // Decision Tree
+                        'rgba(54, 162, 235, 0.6)', // Random Forest
+                        'rgba(255, 159, 64, 0.6)', // Gradient Boosting
+                        'rgba(153, 102, 255, 0.6)', // LightGBM
+                        'rgba(255, 205, 86, 0.6)', // CatBoost
+                        'rgba(201, 203, 207, 0.6)'  // HGB
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)', 
+                        'rgba(54, 162, 235, 1)', 
+                        'rgba(255, 159, 64, 1)', 
+                        'rgba(153, 102, 255, 1)', 
+                        'rgba(255, 205, 86, 1)', 
+                        'rgba(201, 203, 207, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false  // Hide the legend
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 10
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}

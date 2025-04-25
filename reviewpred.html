@@ -1,0 +1,140 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, rgba(0, 47, 108, 0.9), rgba(0, 183, 195, 0.85), rgba(153, 153, 255, 0.85), rgba(235, 235, 245, 0.85));
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 60px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(to right, #007BFF, #00BFA5);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 7px 15px rgba(0, 123, 255, 0.6);
+    background: linear-gradient(to right, #0056b3, #00877d);
+  }
+
+  label {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  textarea, input, select {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+  }
+
+  h1 {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .hidden {
+      display: none;
+  }
+</style>
+
+<div class="container pt-5">
+  <h1 class="text-center">Campus Placement Prediction</h1>
+</div>
+<div class="container form-container">
+  <form action="{{ url_for('pred') }}" method="POST">
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="age">Age (18-26):</label>
+        <input type="number" name="age" id="age" class="form-control" min="18" max="26" required>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" class="form-control" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="stream">Stream:</label>
+        <select name="stream" id="stream" class="form-control" required>
+          <option value="" disabled selected>Select your Stream</option>
+          <option value="1">Electronics And Communication</option>
+          <option value="2">Computer Science</option>
+          <option value="3">Information Technology</option>
+          <option value="4">Mechanical</option>
+          <option value="5">Electrical</option>
+          <option value="6">Civil</option>
+          <option value="7">Artificial Intelligence</option>
+        </select>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="internships">Number of Internships (0-6):</label>
+        <input type="number" name="internships" id="internships" class="form-control" min="0" max="6" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="cgpa">CGPA (0-10):</label>
+        <input type="number" name="cgpa" id="cgpa" class="form-control" step="0.01" min="0" max="10" required>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="certification">Global certifications:</label>
+        <select name="certification" id="certification" class="form-control" required>
+          <option value="" disabled selected></option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="backlogs">History of Backlogs:</label>
+        <select name="backlogs" id="backlogs" class="form-control" required>
+          <option value="" disabled selected></option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary">Predict Placement</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

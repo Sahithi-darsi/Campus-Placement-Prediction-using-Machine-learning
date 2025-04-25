@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+{% block content %}
+  
+<style>
+  body {
+    background: linear-gradient(135deg, rgba(0, 47, 108, 0.9), rgba(0, 183, 195, 0.85), rgba(153, 153, 255, 0.85), rgba(235, 235, 245, 0.85));
+    color: white; /* Ensures good contrast */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly less transparent for contrast */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for a premium look */
+    margin-top: 60px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(to right, #007BFF, #00BFA5);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 7px 15px rgba(0, 123, 255, 0.6);
+    background: linear-gradient(to right, #0056b3, #00877d);
+  }
+
+  label, p {
+    color: #f0f0f0;
+    font-size: 18px;
+  }
+
+  h1 {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  textarea {
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+ 
+
+</style>
+
+  <div class="container pt-5">
+  	<h3 style="margin: auto;width: 80%; text-align: center; margin-top: 20px;  text-transform: uppercase">Results Of Prediction</h3>
+  <div style="width: 90%; margin: auto; text-align: center">
+    
+      <img src="static\result.png" style ="max-width: 500px; max-height: 350px;">
+      
+      <p style="font-style: italic">{{ text }}</p>
+
+      <h3 style="margin-top: 40px"><b>Prediction: <span style="color: green">{{ result }}</span></b></h3>
+      
+      <br>
+      <div class="prediction text-center">
+        <a href="/" class="smoothScroll btn btn-success wow fadeInDown" data-wow-delay="2000">Back Home</a>
+      </div>
+  </div>
+  <br>
+  <br>
+    
+{% endblock %}
